@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'scala'
+    id "com.github.maiflai.scalatest" version '0.26'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+ext {
+    scalaVersionMajor = "2.13"
+    scalaVersion = "2.13.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    scalaCompilerPlugin
+}
+
+dependencies {
+    implementation "org.scala-lang:scala-library:${scalaVersion}"
+    testCompile "org.scalatest:scalatest_${scalaVersionMajor}:3.1.0"
+    scalaCompilerPlugin "com.artima:supersafe_${scalaVersion}:1.1.9"
+    testRuntime 'com.vladsch.flexmark:flexmark-all:0.35.10'
+}
